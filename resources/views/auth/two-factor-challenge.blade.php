@@ -1,7 +1,7 @@
 <x-guest-layout>
     <x-authentication-card>
         <x-slot name="logo">
-            <img style="height: 100px;width:120px;padding:15px" src="{{ asset('images/logo/logo.png') }}" alt="logo">
+            <img style="height: 80px;width:120px;padding:15px" src="{{ asset('images/logo/logo.png') }}" alt="logo">
         </x-slot>
 
         <div x-data="{ recovery: false }">
