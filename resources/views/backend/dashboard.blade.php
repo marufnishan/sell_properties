@@ -12,14 +12,14 @@
                 </li>
                 <li><i class='bx bx-chevron-right' ></i></li>
                 <li>
-                    <a class="active" href="#">Home</a>
+                    <a class="active" href="#">{{Auth::user()->utype}}</a>
+                </li>
+                <li><i class='bx bx-chevron-right' ></i></li>
+                <li>
+                    <a class="active" href="#">{{Auth::user()->name}}</a>
                 </li>
             </ul>
         </div>
-        <a href="#" class="btn-download">
-            <i class='bx bxs-cloud-download' ></i>
-            <span class="text">Download PDF</span>
-        </a>
     </div>
 
     <ul class="box-info">
@@ -105,7 +105,7 @@
                     </tr>
                 </tbody>
             </table>
-        </div>
+        </div>{{-- 
         <div class="todo">
             <div class="head">
                 <h3>Todos</h3>
@@ -134,7 +134,7 @@
                     <i class='bx bx-dots-vertical-rounded' ></i>
                 </li>
             </ul>
-        </div>
+        </div> --}}
     </div>
 </main>
 <!-- MAIN -->
