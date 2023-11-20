@@ -22,4 +22,10 @@ class HomeController extends Controller
         return view('frontend.home');
     }
 
+    public function cart()
+    {
+
+        return view('frontend.cart');
+    }
+
 }
