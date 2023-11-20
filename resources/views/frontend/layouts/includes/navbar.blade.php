@@ -23,8 +23,8 @@
                     <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
                 </button>
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">Login</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#!">Signup</a></li>
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="{{ route('login') }}">Login</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('register') }}">Signup</a></li>
                 </ul>
             </form>
         </div>
