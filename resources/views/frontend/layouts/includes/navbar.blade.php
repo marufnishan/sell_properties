@@ -6,6 +6,7 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
                 <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">Home</a></li>
                 <li class="nav-item"><a class="nav-link" href="#!">About</a></li>
+                <li class="nav-item"><a href="#" data-bs-toggle="modal" data-bs-target="#addModal" class="nav-link">Sell Properties</a></li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Properties</a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -22,7 +23,7 @@
                     Cart
                     <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
                 </button>
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">                   
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
                     @if(Auth::user())
                     <li class="nav-item"><a class="nav-link" href="{{ route('sign-out') }}">Logout</a></li>
                     @else

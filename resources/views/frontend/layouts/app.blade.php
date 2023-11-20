@@ -17,6 +17,7 @@
     {{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script> --}}
 
     @yield('styles')
+    @stack('styles')
 </head>
 
 <body>
