@@ -24,7 +24,7 @@
                 </button>
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">                   
                     @if(Auth::user())
-                    <li class="nav-item"><a class="nav-link" href="{{ route('logout') }}">Logout</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('sign-out') }}">Logout</a></li>
                     @else
                     <li class="nav-item"><a class="nav-link active" aria-current="page" href="{{ route('login') }}">Login</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ route('register') }}">Signup</a></li>

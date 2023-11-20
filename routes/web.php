@@ -23,9 +23,9 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified',
 ])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
+    Route::get('/dashboard', function () {return view('dashboard');
     })->name('dashboard');
+    Route::get('/sign-out', [AuthController::class,'logout'])->name('sign-out');
+
 });
 
-Route::get('/logout', [AuthController::class,'logout'])->name('logout');
