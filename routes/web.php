@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\AuthController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,7 +23,13 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified',
 ])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
+    Route::get('/dashboard', function () {return view('backend.dashboard');
     })->name('dashboard');
+    
+
 });
+
+Route::get('/sign-out', [AuthController::class, 'logout'])
+    ->name('sign-out');
+    
+
