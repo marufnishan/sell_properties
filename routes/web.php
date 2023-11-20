@@ -25,7 +25,11 @@ Route::middleware([
 ])->group(function () {
     Route::get('/dashboard', function () {return view('backend.dashboard');
     })->name('dashboard');
-    Route::get('/sign-out', [AuthController::class,'logout'])->name('sign-out');
+    
 
 });
+
+Route::get('/sign-out', [AuthController::class, 'logout'])
+    ->name('sign-out');
+    
 
