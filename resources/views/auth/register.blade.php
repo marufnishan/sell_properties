@@ -27,14 +27,14 @@
             <div class="mt-4">
                 <x-label for="password_confirmation" value="{{ __('Confirm Password') }}" />
                 <x-input id="password_confirmation" class="block mt-1 w-full" type="password" name="password_confirmation" required autocomplete="new-password" />
-            </div>
+            </div>{{-- 
             <div class="mt-4">
                 <x-label for="user_type" value="{{ __('User Type') }}" />
                 <select id="user_type" class="block mt-1 w-full rounded dark:bg-gray-800 dark:text-white hover:bg-gray-500" name="user_type" required>
                     <option value="Admin">Seller</option>
                     <option value="Customer" selected>Customer</option>
                 </select>
-            </div>
+            </div> --}}
             
 
             @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
