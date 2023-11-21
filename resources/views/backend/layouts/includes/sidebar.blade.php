@@ -1,14 +1,14 @@
 <!-- SIDEBAR -->
 <section id="sidebar">
-    <a href="#" class="brand">
+    <a href="/" class="brand">
         <i class='bx bxs-smile'></i>
         <span class="text">Sell Property</span>
     </a>
     <ul class="side-menu top">
         <li class="active">
-            <a href="#">
+            <a href="/">
                 <i class='bx bxs-dashboard' ></i>
-                <span class="text">Dashboard</span>
+                <span class="text">Home</span>
             </a>
         </li>
         <li>
@@ -22,19 +22,19 @@
                 <i class='bx bxs-doughnut-chart' ></i>
                 <span class="text">Order List</span>
             </a>
-        </li>{{-- 
+        </li>
         <li>
             <a href="#">
-                <i class='bx bxs-message-dots' ></i>
-                <span class="text">Message</span>
+                <i class='bx bxs-dollar-circle' ></i>
+                <span class="text">Transections</span>
             </a>
         </li>
         <li>
             <a href="#">
                 <i class='bx bxs-group' ></i>
-                <span class="text">Team</span>
+                <span class="text">User List</span>
             </a>
-        </li> --}}
+        </li> 
     </ul>
     <ul class="side-menu">
         <li>
