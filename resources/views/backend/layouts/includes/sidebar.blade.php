@@ -1,12 +1,12 @@
 <!-- SIDEBAR -->
 <section id="sidebar">
-    <a href="/" class="brand">
+    <a href="{{route('index')}}" class="brand">
         <i class='bx bxs-smile'></i>
         <span class="text">Sell Property</span>
     </a>
     <ul class="side-menu top">
         <li class="active">
-            <a href="/">
+            <a href="{{route('index')}}">
                 <i class='bx bxs-dashboard' ></i>
                 <span class="text">Home</span>
             </a>
