@@ -5,7 +5,7 @@
         <span class="text">Sell Property</span>
     </a>
     <ul class="side-menu top">
-        <li class="active">
+        <li class="{{ request()->routeIs('dashboard') ? 'active' : '' }}">
             <a href="{{route('index')}}">
                 <i class='bx bxs-dashboard' ></i>
                 <span class="text">Home</span>
@@ -30,7 +30,7 @@
                 <span class="text">Transections</span>
             </a>
         </li>
-        <li>
+        <li class="{{ request()->routeIs('users') ? 'active' : '' }}">
             <a href="{{route('users')}}">
                 <i class='bx bxs-group' ></i>
                 <span class="text">User List</span>
