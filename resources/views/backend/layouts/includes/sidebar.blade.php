@@ -31,7 +31,7 @@
             </a>
         </li>
         <li>
-            <a href="#">
+            <a href="{{route('users')}}">
                 <i class='bx bxs-group' ></i>
                 <span class="text">User List</span>
             </a>
