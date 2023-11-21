@@ -11,6 +11,7 @@
                 <span class="text">Home</span>
             </a>
         </li>
+        @if(Auth::user()->utype == 'Admin')
         <li>
             <a href="#">
                 <i class='bx bxs-shopping-bag-alt' ></i>
@@ -35,6 +36,27 @@
                 <span class="text">User List</span>
             </a>
         </li> 
+        @endif
+        @if(Auth::user()->utype == 'User')
+        <li>
+            <a href="#">
+                <i class='bx bxs-shopping-bag-alt' ></i>
+                <span class="text">Property List</span>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <i class='bx bxs-doughnut-chart' ></i>
+                <span class="text">Order List</span>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <i class='bx bxs-dollar-circle' ></i>
+                <span class="text">Transections</span>
+            </a>
+        </li>
+        @endif
     </ul>
     <ul class="side-menu">
         <li>
