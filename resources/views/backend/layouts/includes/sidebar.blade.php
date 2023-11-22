@@ -5,12 +5,13 @@
         <span class="text">Sell Property</span>
     </a>
     <ul class="side-menu top">
-        <li class="active">
+        <li class="{{ request()->routeIs('dashboard') ? 'active' : '' }}">
             <a href="{{route('index')}}">
                 <i class='bx bxs-dashboard' ></i>
                 <span class="text">Home</span>
             </a>
         </li>
+        @if(Auth::user()->utype == 'Admin')
         <li>
             <a href="#">
                 <i class='bx bxs-shopping-bag-alt' ></i>
@@ -29,12 +30,33 @@
                 <span class="text">Transections</span>
             </a>
         </li>
-        <li>
-            <a href="#">
+        <li class="{{ request()->routeIs('users') ? 'active' : '' }}">
+            <a href="{{route('users')}}">
                 <i class='bx bxs-group' ></i>
                 <span class="text">User List</span>
             </a>
         </li> 
+        @endif
+        @if(Auth::user()->utype == 'User')
+        <li>
+            <a href="#">
+                <i class='bx bxs-shopping-bag-alt' ></i>
+                <span class="text">Property List</span>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <i class='bx bxs-doughnut-chart' ></i>
+                <span class="text">Order List</span>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <i class='bx bxs-dollar-circle' ></i>
+                <span class="text">Transections</span>
+            </a>
+        </li>
+        @endif
     </ul>
     <ul class="side-menu">
         <li>
