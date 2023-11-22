@@ -74,3 +74,28 @@ switchMode.addEventListener('change', function () {
 		document.body.classList.remove('dark');
 	}
 })
+
+/* Model Js */
+
+  // Get the modal and button elements
+  var modal = document.getElementById('myModal');
+  var editButton = document.getElementById('editButton');
+
+  // Open the modal when the Edit button is clicked
+  editButton.onclick = function() {
+	modal.style.display = 'flex';
+  }
+
+  // Close the modal when the close button is clicked
+  function closeModal() {
+	modal.style.display = 'none';
+  }
+
+  // Close the modal if the user clicks outside the modal content
+window.onclick = function(event) {
+  if (event.target == modal) {
+	modal.style.display = 'none';
+  }
+}
+
+/* Model Js */
