@@ -1,5 +1,5 @@
 <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="addProductModal" aria-hidden="true">
-    <form action="{{ route("sell.property.store") }}" method="POST" id="sellPropertyRequest">
+    <form action="{{ route("sell.property.store") }}" method="POST" enctype="multipart/form-data" id="sellPropertyRequest">
         @csrf
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
@@ -30,7 +30,7 @@
                                 <span style="color: red;">*</span>
                                 <span class="info-icon" data-toggle="tooltip" data-placement="top" title="This is the image of the property."><i class="fa fa-info-circle"></i></span>
                             </label>
-                            <input required class="form-control propertyImage" type="file" name="image">
+                            <input required class="form-control propertyImage" type="file" name="image" accept="image/png, image/gif, image/jpeg">
                         </div>
                         <div class="col-6">
                             <label for="propertyType" class="form-label">Property Type

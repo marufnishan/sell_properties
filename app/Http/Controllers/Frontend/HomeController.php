@@ -26,9 +26,25 @@ class HomeController extends Controller
 
     public function store(Request $request)
     {
-        $data= Property::create($request->all());
+        try {
+            $inputs=$request->all();
+            if($request->hasFile('image'))
+            {
+                $imagePath="uploads/property_images";
+                $image_name =Str::random(6)."-property-image".".jpg";
+                $image = $request->file('image');
+                if (!File::isDirectory(base_path().'/public/'.$imagePath)){
+                    File::makeDirectory(base_path().'/public/'.$imagePath, 0777, true, true);
+                }
+                $image->move(public_path($imagePath),$image_name);
+                $inputs['image']=$image_name;
+            }
 
-        return redirect()->back();
+            $data = Property::create($inputs);
+            return redirect()->back()->with('success', 'Property sell request created successfully.');
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error', 'Error creating property sell request: ' . $e->getMessage());
+        }
     }
 
     public function cart()
