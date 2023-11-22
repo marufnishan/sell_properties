@@ -6,9 +6,9 @@
     </a>
     <ul class="side-menu top">
         <li class="{{ request()->routeIs('dashboard') ? 'active' : '' }}">
-            <a href="{{route('index')}}">
+            <a href="{{route('dashboard')}}">
                 <i class='bx bxs-dashboard' ></i>
-                <span class="text">Home</span>
+                <span class="text">Dashboard</span>
             </a>
         </li>
         @if(Auth::user()->utype == 'Admin')
