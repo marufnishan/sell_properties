@@ -6,7 +6,7 @@
     <div class="table-data">
         <div class="order">
             <div class="head">
-                <h3>User List <a href="{{route('user.create')}}"><button type="submit" class="status pending" style="border:none;cursor:pointer;margin-left:20px">Add User</button></a></h3>
+                <h3>User List <a href="{{route('user.create')}}"><button id="submit-button" type="submit" class="status pending" style="border:none;cursor:pointer;margin-left:20px">Add User</button></a></h3>
                 
             </div>
             <table>

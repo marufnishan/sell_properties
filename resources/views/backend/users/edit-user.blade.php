@@ -21,7 +21,7 @@
                 <option value="Admin" {{ $user->utype === 'Admin' ? 'selected' : '' }}>Admin</option>
                 <option value="User" {{ $user->utype === 'User' ? 'selected' : '' }}>User</option>
             </select>
-            <button type="submit">Update</button>
+            <button id="submit-button" type="submit">Update</button>
         </form>
         </div>
     </div>
