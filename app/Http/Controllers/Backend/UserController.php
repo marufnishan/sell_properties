@@ -65,7 +65,7 @@ class UserController extends Controller
 
         if ($user) {
             $user->delete();
-            return redirect()->route('users')->with('success', 'User deleted successfully!');
+            return redirect()->route('users')->with('error', 'User deleted successfully!');
         }
 
         return redirect()->route('users')->with('error', 'User not found!');
