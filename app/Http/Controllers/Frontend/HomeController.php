@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\ValidationException;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\File;
+use App\Authorize\AuthorizeNetPayment;
 
 class HomeController extends Controller
 {
@@ -31,6 +32,61 @@ class HomeController extends Controller
         return view('frontend.property-view',compact('propertie'));
     }
 
+    public function propertyPurchase($id)
+    {
+        $propertie=Property::findOrFail($id);
+        return view('frontend.purchase',compact('propertie'));
+    }
+
+    public function propertyPurchaseStore(Request $request,$id)
+    {
+        // $request->validate([
+        //     'payment_method' => 'required',
+        //     'card' => ['required', 'numeric', 'regex:/^[0-9]+$/'],
+        //     'expmonth' => 'required',
+        //     'expyear' => 'required|date_format:Y',
+        // ]);
+
+        $propertie=Property::findOrFail($id);
+
+        if(!$propertie)
+        {
+            return redirect()->back()->with('error', 'Property not found.');
+        }
+        // Assuming $propertie->price is in BDT
+        $exchangeRate = 110.32; // Replace this with the actual exchange rate
+
+        // Convert BDT to USD
+        $amountInUSD = $amountInUSD = (float) $propertie->price / $exchangeRate;
+        $amountInUSD = number_format($amountInUSD, 2, '.', '');
+        $object = [
+            '_token' => $request->_token,
+            'card' => $request->card,
+            'expmonth' => $request->expmonth,
+            'expyear' => $request->expyear,
+            'amount' => $amountInUSD,
+            'pay' => $request->pay,
+
+        ];
+         //dd($object);
+
+        $authorizeNetPayment = new AuthorizeNetPayment();
+        $responseData = $authorizeNetPayment->chargeCreditCard($object);
+
+        $transactionResponse = $responseData->getTransactionResponse();
+        $errors = $transactionResponse->getErrors();
+dd($transactionResponse);
+        $rfid = get_object_vars(json_decode(json_encode($responseData)))['refId'];
+        //dd( $transactionResponse->getRefTransID());
+        $messages = get_object_vars(json_decode(json_encode($responseData)))['messages'];
+        $status = get_object_vars(json_decode(json_encode($messages)))['resultCode'];
+
+        if ($status == 'Ok' && is_null($errors)) {
+            $order->payment_id = $rfid;
+            $order->payment_status = 'paid';
+            $order->save();
+        }
+    }
     public function store(Request $request)
     {
         try {

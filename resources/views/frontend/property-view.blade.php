@@ -78,11 +78,11 @@
                                 </div>
                             </div>
 
-                      <button type="button" class="btn btn-info btn-block btn-lg">
+                      <a href="{{ route('propertyPurchase',["id"=> $propertie->id]) }}" class="btn btn-info btn-block btn-lg">
                         <div class="d-flex justify-content-between">
                           <span>Buy <i class="fas fa-long-arrow-alt-right ms-2"></i></span>
                         </div>
-                      </button>
+                     </a>
 
                     </div>
                   </div>
