@@ -24,6 +24,13 @@ class HomeController extends Controller
         return view('frontend.home',compact('properties'));
     }
 
+    public function propertyView($id)
+    {
+        $propertie=Property::findOrFail($id);
+
+        return view('frontend.property-view',compact('propertie'));
+    }
+
     public function store(Request $request)
     {
         try {
@@ -37,7 +44,7 @@ class HomeController extends Controller
                     File::makeDirectory(base_path().'/public/'.$imagePath, 0777, true, true);
                 }
                 $image->move(public_path($imagePath),$image_name);
-                $inputs['image']=$image_name;
+                $inputs['image']=$imagePath."/".$image_name;
             }
 
             $data = Property::create($inputs);
