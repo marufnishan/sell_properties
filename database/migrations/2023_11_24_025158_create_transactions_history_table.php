@@ -24,8 +24,8 @@ return new class extends Migration
             $table->string('status')->default('1')->comment('0=Pending,1=Approved,2=Rejected,3=Blocked');
             $table->timestamps();
 
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('set null');
-            $table->foreign('property_id')->references('id')->on('properties')->onDelete('set null');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('set null')->onUpdate('set null');
+            $table->foreign('property_id')->references('id')->on('properties')->onDelete('set null')->onUpdate('set null');
         });
     }
 
