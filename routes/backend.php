@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Backend\UserController;
 use App\Http\Controllers\Backend\TransactionController;
+use App\Http\Controllers\Backend\OrderController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('get-users',[UserController::class,'index'])->name('users');
@@ -14,3 +15,7 @@ Route::post('/user/store', [UserController::class, 'store'] )->name('user.store'
 
 
 Route::get('/get-transaction',[TransactionController::class,'index'])->name('get.transaction');
+
+
+
+Route::get('/get-order',[OrderController::class,'index'])->name('get.order');

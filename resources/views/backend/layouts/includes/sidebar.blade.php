@@ -18,8 +18,8 @@
                 <span class="text">Property List</span>
             </a>
         </li>
-        <li>
-            <a href="#">
+        <li class="{{ request()->routeIs('get.order') ? 'active' : '' }}">
+            <a href="{{ route('get.order') }}">
                 <i class='bx bxs-doughnut-chart' ></i>
                 <span class="text">Order List</span>
             </a>

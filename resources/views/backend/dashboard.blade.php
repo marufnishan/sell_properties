@@ -23,25 +23,38 @@
 
     <ul class="box-info">
         <li>
-            <i class='bx bxs-calendar-check' ></i>
-            <span class="text">
-                <h3>0</h3>
-                <p>New Order</p>
-            </span>
+            <a href="{{ route('get.order') }}">
+                 <i class='bx bxs-calendar-check' ></i>
+            </a>
+            <a href="{{ route('get.order') }}">
+                <span class="text">
+                    <h3>{{ $transactionHistory->count() }}</h3>
+                    <p>Total Order</p>
+                </span>
+            </a>
         </li>
         <li>
-            <i class='bx bxs-group' ></i>
-            <span class="text">
-                <h3>3</h3>
-                <p>Users</p>
-            </span>
+            <a href="{{ route('users') }}">
+                <i class='bx bxs-group' ></i>
+            </a>
+            <a href="{{ route('users') }}">
+                <span class="text">
+                    <h3>{{ $users->count() }}</h3>
+                    <p>Users</p>
+                </span>
+            </a>
+
         </li>
         <li>
-            <i class='bx bxs-dollar-circle' ></i>
-            <span class="text">
-                <h3>$0.00</h3>
-                <p>Total Sales</p>
-            </span>
+            <a href="{{ route('get.order') }}">
+                <i class='bx bxs-dollar-circle' ></i>
+            </a>
+            <a href="{{ route('get.order') }}">
+                <span class="text">
+                    <h3>BDT {{ $transactionHistory->sum('amount')*110.32 }}</h3>
+                    <p>Total Sales</p>
+                </span>
+            </a>
         </li>
     </ul>
 
