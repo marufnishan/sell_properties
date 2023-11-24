@@ -217,13 +217,19 @@
                           <p class="mb-2">Total(Incl. taxes)</p>
                           <p class="mb-2">$4818.00</p>
                         </div> --}}
-
-                        <button type="submit" class="btn btn-info btn-block btn-lg">
-                          <div class="d-flex justify-content-between">
-                            <span>Checkout <i class="fas fa-long-arrow-alt-right ms-2"></i></span>
-                          </div>
-                        </button>
-
+                        @if(Auth::user())
+                            <button type="submit" class="btn btn-info btn-block btn-lg">
+                                <div class="d-flex justify-content-between">
+                                <span>Checkout <i class="fas fa-long-arrow-alt-right ms-2"></i></span>
+                                </div>
+                            </button>
+                        @else
+                            <a href="" type="type" class="btn btn-info btn-block btn-lg" data-bs-toggle="modal" data-bs-target="#redirect-login-signup">
+                                <div class="d-flex justify-content-between">
+                                <span>Checkout <i class="fas fa-long-arrow-alt-right ms-2"></i></span>
+                                </div>
+                            </a>
+                        @endif
                       </form>
                     </div>
                   </div>

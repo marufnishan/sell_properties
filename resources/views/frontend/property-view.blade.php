@@ -78,12 +78,19 @@
                                 </div>
                             </div>
 
-                      <a href="{{ route('propertyPurchase',["id"=> $propertie->id]) }}" class="btn btn-info btn-block btn-lg">
-                        <div class="d-flex justify-content-between">
-                          <span>Buy <i class="fas fa-long-arrow-alt-right ms-2"></i></span>
-                        </div>
-                     </a>
-
+                        @if(Auth::user())
+                            <a href="{{ route('propertyPurchase',["id"=> $propertie->id]) }}" class="btn btn-info btn-block btn-lg">
+                                <div class="d-flex justify-content-between">
+                                <span>Buy <i class="fas fa-long-arrow-alt-right ms-2"></i></span>
+                                </div>
+                            </a>
+                        @else
+                            <a href="" data-bs-toggle="modal" data-bs-target="#redirect-login-signup" class="btn btn-info btn-block btn-lg">
+                                <div class="d-flex justify-content-between">
+                                <span>Buy <i class="fas fa-long-arrow-alt-right ms-2"></i></span>
+                                </div>
+                            </a>
+                        @endif
                     </div>
                   </div>
 

@@ -33,6 +33,7 @@
     <main>
         @yield('content')
         @include('frontend.layouts.includes.modal.sell-property-modal')
+        @include('frontend.layouts.includes.modal.redirect-login-signup-modal')
     </main>
 
 

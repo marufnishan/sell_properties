@@ -59,7 +59,7 @@ class HomeController extends Controller
         // Convert BDT to USD
         $amountInUSD = $amountInUSD = (float) $propertie->price / $exchangeRate;
         $amountInUSD = number_format($amountInUSD, 2, '.', '');
-        
+
         $object = [
             '_token' => $request->_token,
             'card' => $request->card,
@@ -86,7 +86,7 @@ class HomeController extends Controller
 
         if ($status == 'Ok' && is_null($errors)) {
             $data=[
-                "user_id"=>null,
+                "user_id"=> auth()->id() ?? null,
                 "property_id"=> $propertie->id,
                 "transaction_id"=> $transID ,
                 "network_transaction_id"=> $networkTransId,
@@ -123,6 +123,7 @@ class HomeController extends Controller
     {
         try {
             $inputs=$request->all();
+            $inputs['owner_id']=auth()->id() ?? null;
             if($request->hasFile('image'))
             {
                 $imagePath="uploads/property_images";
