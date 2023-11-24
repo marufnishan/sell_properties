@@ -15,29 +15,29 @@ class UserController extends Controller
     }
 
     public function create()
-{
-    return view('backend.users.add-users');
-}
+    {
+        return view('backend.users.add-users');
+    }
 
 
     public function store(Request $request)
-{
-    $request->validate([
-        'name' => 'required|string',
-        'email' => 'required|email|unique:users',
-        'user_type' => 'required|in:Admin,User',
-        'password' => 'required|min:8|confirmed',
-    ]);
+    {
+        $request->validate([
+            'name' => 'required|string',
+            'email' => 'required|email|unique:users',
+            'user_type' => 'required|in:Admin,User',
+            'password' => 'required|min:8|confirmed',
+        ]);
 
-    User::create([
-        'name' => $request->input('name'),
-        'email' => $request->input('email'),
-        'utype' => $request->input('user_type'),
-        'password' => bcrypt($request->input('password')),
-    ]);
+        User::create([
+            'name' => $request->input('name'),
+            'email' => $request->input('email'),
+            'utype' => $request->input('user_type'),
+            'password' => bcrypt($request->input('password')),
+        ]);
 
-    return redirect()->route('users')->with('success', 'User created successfully');
-}
+        return redirect()->route('users')->with('success', 'User created successfully');
+    }
 
     public function edit($id)
     {
