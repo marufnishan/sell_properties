@@ -685,3 +685,16 @@ select {
     color: #fff;
     border-radius: 10px;
   }
+
+  @media (max-width: 768px) {
+	/* Adjust the width of the form and the floating divs */
+	#createUserForm {
+		width: 100%;
+	}
+
+	div[style="float: left; width: 50%;"] {
+		float: none;
+		width: 100%;
+		padding-left: 0;
+	}
+}
