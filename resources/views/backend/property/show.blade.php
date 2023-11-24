@@ -14,16 +14,16 @@
                     <thead>
                         <tr>
                             <th style="padding:25px;">Sl.No</th>
-                            <th style="padding:25px;">Property Image</th>
+                            <th style="padding:25px;">Image</th>
                             <th style="padding:25px;">Owner</th>
                             <th style="padding:25px;">Title</th>
-                            <th style="padding:25px;">Property Type</th>
-                            <th style="padding:25px;">Property Price </th>
-                            <th style="padding:25px;">Property Old Price</th>
-                            <th style="padding:25px;">Total Bedrooms </th>
-                            <th style="padding:25px;">Total Bathrooms </th>
-                            <th style="padding:25px;">Total Balconies</th>
-                            <th style="padding:25px;">Total kitchens</th>
+                            <th style="padding:25px;">Type</th>
+                            <th style="padding:25px;">Price </th>
+                            <th style="padding:25px;">Old Price</th>
+                            <th style="padding:25px;">Bedrooms </th>
+                            <th style="padding:25px;">Bathrooms </th>
+                            <th style="padding:25px;">Balconies</th>
+                            <th style="padding:25px;">kitchens</th>
                             <th style="padding:25px;">Area (sqft)</th>
                             <th style="padding:25px;">Location </th>
                             <th style="padding:25px;">Contact Number </th>
@@ -42,17 +42,17 @@
                                 <td style="padding:25px;">{{ $value->owner->name}}</td>
                                 <td style="padding:25px;">{{ $value->title}}</td>
                                 <td style="padding:25px;">{{ $value->property_type}}</td>
-                                <td style="padding:25px;">&#2547; {{ $value->price}}</td>
-                                <td style="padding:25px;">&#2547; {{ $value->old_price}}</td>
-                                <td style="padding:25px;"><span class="status completed">{{ $value->bedrooms}}</span> </td>
+                                <td style="padding:25px;"><span style="display: inline;">&#2547;</span><span style="display:inline;">{{ $value->price}}</span></td>
+                                <td style="padding:25px;"><span style="display: inline;">&#2547;</span><span style="display:inline;">{{ $value->old_price}}</span></td>
+                                <td style="padding:25px;"><span class="status completed">{{ $value->bedrooms}}</span></td>
                                 <td style="padding:25px;"><span class="status pending">{{ $value->bathrooms}}</span></td>
                                 <td style="padding:25px;"><span class="status completed">{{ $value->balconies}}</span></td>
                                 <td style="padding:25px;"><span class="status pending">{{ $value->kitchens}}</span></td>
                                 <td style="padding:25px;">{{ $value->size_sqft}}</td>
-                                <td style="padding:25px;">{{ $value->location}}</td>
-                                <td style="padding:25px;">{{ $value->contact_number}}</td>
-                                <td style="padding:25px;">{{ $value->contact_address}}</td>
-                                <td style="padding:25px;">{{ $value->contact_email}}</td>
+                                <td style="padding:25px;"><span style="display:inline;">{{ $value->location}}</span></td>
+                                <td style="padding:25px;"><span style="display:inline;">{{ $value->contact_number}}</span></td>
+                                <td style="padding:25px;"><span style="display:inline;">{{ $value->contact_email}}</span></td>
+                                <td style="padding:25px;"><span style="display:inline;">{{ $value->contact_address}}</span></td>
                                 <td style="padding: 25px;">
                                     @if($value->status == 0)
                                         Pending
