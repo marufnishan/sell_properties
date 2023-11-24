@@ -8,13 +8,14 @@
     <div class="table-data">
         <div class="order">
             <!-- User Create Form -->
-            <form action="{{ route("sell.property.store") }}" style="padding:20px" method="POST" enctype="multipart/form-data" id="createUserForm">
+            
+            <form action="{{ route("sell.property.store") }}" style="padding: 20px" method="POST" enctype="multipart/form-data" id="createUserForm">
                 @csrf
                 <div>
                     <div>
                         <h1>Add a property</h1>
                     </div>
-                    <div >
+                    <div>
                         <div>
                             <div>
                                 <label for="title">Title
@@ -85,9 +86,7 @@
                                     </label>
                                     <input required class="propertyBalconies" type="number" name="balconies" placeholder="Type balconies....">
                                 </div>
-                                
                             </div>
-                            
                         </div>
                         <div style="float: left; width: 50%; padding: 10px;">
                             <div>
@@ -113,7 +112,6 @@
                                     <input class="propertyLocation" type="text" name="location" placeholder="Ex: Pallabi,Mirpur-12,Dhaka">
                                 </div>
                             </div>
-                            
                             <div>
                                 <div>
                                     <label for="propertyContactNumber" class="form-label">Contact Number
@@ -139,11 +137,10 @@
                                 <button id="submit-button"  type="submit">Create sell request</button>
                             </div>
                         </div>                       
-                        
                     </div>
-                    
                 </div>
             </form>
+            
             
         </div>
         

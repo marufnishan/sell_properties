@@ -9,7 +9,7 @@
                 <h3>Transaction History</h3>
 
             </div>
-            <div class="div" style="max-height:400px!important;overflow-y: auto!important;">
+            <div class="div" style="max-height:70vh!important;overflow-y: auto!important;">
                 <table>
                     <thead>
                         <tr>

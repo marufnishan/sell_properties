@@ -137,7 +137,12 @@ class HomeController extends Controller
             }
 
             $data = Property::create($inputs);
-            return redirect()->back()->with('success', 'Property sell request created successfully.');
+            if(Auth::user()->utype == 'Admin'){
+                return redirect()->route('show-property')->with('success', 'Property sell request created successfully.');
+            }else{
+                return redirect()->back()->with('success', 'Property sell request created successfully.');
+            }
+            
         } catch (\Exception $e) {
             return redirect()->back()->with('error', 'Error creating property sell request: ' . $e->getMessage());
         }

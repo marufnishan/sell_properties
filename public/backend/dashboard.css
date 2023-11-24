@@ -686,15 +686,28 @@ select {
     border-radius: 10px;
   }
 
-  @media (max-width: 768px) {
-	/* Adjust the width of the form and the floating divs */
-	#createUserForm {
-		width: 100%;
-	}
+  /* Add general styling for your form elements here */
+ 
 
-	div[style="float: left; width: 50%;"] {
+label {
+	display: block;
+	margin-bottom: 5px;
+}
+
+input,
+textarea,
+select {
+	width: 100%;
+	padding: 8px;
+	margin-bottom: 10px;
+	box-sizing: border-box;
+}
+
+/* Add media query for screens smaller than 768px */
+@media (max-width: 768px) {
+	div[style="float: left; width: 50%;padding: 10px;"] {
 		float: none;
 		width: 100%;
-		padding-left: 0;
+		padding: 10px;
 	}
 }
