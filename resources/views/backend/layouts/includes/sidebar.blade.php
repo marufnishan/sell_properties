@@ -12,8 +12,8 @@
             </a>
         </li>
         @if(Auth::user()->utype == 'Admin')
-        <li>
-            <a href="#">
+        <li class="{{ request()->routeIs('show-property') ? 'active' : '' }}">
+            <a href="{{route('show-property')}}">
                 <i class='bx bxs-shopping-bag-alt' ></i>
                 <span class="text">Property List</span>
             </a>

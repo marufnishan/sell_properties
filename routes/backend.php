@@ -3,6 +3,7 @@
 use App\Http\Controllers\Backend\UserController;
 use App\Http\Controllers\Backend\TransactionController;
 use App\Http\Controllers\Backend\OrderController;
+use App\Http\Controllers\Backend\PropertyController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('get-users',[UserController::class,'index'])->name('users');
@@ -19,3 +20,8 @@ Route::get('/get-transaction',[TransactionController::class,'index'])->name('get
 
 
 Route::get('/get-order',[OrderController::class,'index'])->name('get.order');
+
+
+
+//Property
+Route::get('properties', [PropertyController::class, 'index'])->name('show-property');

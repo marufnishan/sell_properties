@@ -6,7 +6,7 @@
     <div class="table-data">
         <div class="order">
             <div class="head">
-                <h3>Transaction History
+                <h3>Transaction History</h3>
 
             </div>
             <div class="div" style="max-height:400px!important;overflow-y: auto!important;">
