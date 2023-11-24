@@ -75,15 +75,32 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>
-                            <img src="{{asset('backend/img/people.png')}}">
-                            <p>John Doe</p>
-                        </td>
-                        <td>01-10-2021</td>
-                        <td><span class="status completed">Completed</span></td>
-                    </tr>
-                    <tr>
+                    @foreach ($transactionHistory as $item)
+                        <tr>
+                            <td>
+                                <img src="{{asset('backend/img/people.png')}}">
+                                <p>{{ $item->user->name}}</p>
+                            </td>
+                            <td>{{ \Carbon\Carbon::parse($item->created_at)->format('jS F Y h:i:s A') }}</td>
+                            <td>
+                                <span class="status completed">
+                                    @if($item->status == 0)
+                                            Pending
+                                    @elseif($item->status == 1)
+                                        Approved
+                                    @elseif($item->status == 2)
+                                        Rejected
+                                    @elseif($item->status == 3)
+                                        Blocked
+                                    @else
+                                        Unknown Status
+                                    @endif
+                                </span>
+                            </td>
+                        </tr>
+                    @endforeach
+
+                    {{-- <tr>
                         <td>
                             <img src="{{asset('backend/img/people.png')}}">
                             <p>John Doe</p>
@@ -114,7 +131,7 @@
                         </td>
                         <td>01-10-2021</td>
                         <td><span class="status completed">Completed</span></td>
-                    </tr>
+                    </tr> --}}
                 </tbody>
             </table>
         </div>
