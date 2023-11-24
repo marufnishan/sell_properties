@@ -24,8 +24,8 @@
                 <span class="text">Order List</span>
             </a>
         </li>
-        <li>
-            <a href="#">
+        <li class="{{ request()->routeIs('get.transaction') ? 'active' : '' }}">
+            <a href="{{ route('get.transaction') }}">
                 <i class='bx bxs-dollar-circle' ></i>
                 <span class="text">Transections</span>
             </a>
@@ -35,7 +35,7 @@
                 <i class='bx bxs-group' ></i>
                 <span class="text">User List</span>
             </a>
-        </li> 
+        </li>
         @endif
         @if(Auth::user()->utype == 'User')
         <li>
@@ -65,7 +65,7 @@
                 <span class="text">Settings</span>
             </a>
         </li>
-        
+
         @if(Auth::user())
         <li>
             <a href="{{ route('sign-out') }}" class="logout">

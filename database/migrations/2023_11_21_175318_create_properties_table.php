@@ -33,8 +33,8 @@ return new class extends Migration
             $table->string('status')->default('0')->comment('0=Pending,1=Approved,2=Rejected,3=Blocked');
             $table->timestamps();
 
-            $table->foreign('owner_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('approved_by')->references('id')->on('users')->onDelete('set null');
+            $table->foreign('owner_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('set null');
+            $table->foreign('approved_by')->references('id')->on('users')->onDelete('set null')->onUpdate('set null');
         });
     }
 
