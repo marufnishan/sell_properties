@@ -3,6 +3,7 @@
 use App\Http\Controllers\Controller;
 use App\Models\Customer;
 use App\Models\Property;
+use App\Models\TransactionHistory ;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cache;
@@ -53,12 +54,12 @@ class HomeController extends Controller
         {
             return redirect()->back()->with('error', 'Property not found.');
         }
-        // Assuming $propertie->price is in BDT
-        $exchangeRate = 110.32; // Replace this with the actual exchange rate
 
+        $exchangeRate = 110.32;
         // Convert BDT to USD
         $amountInUSD = $amountInUSD = (float) $propertie->price / $exchangeRate;
         $amountInUSD = number_format($amountInUSD, 2, '.', '');
+        
         $object = [
             '_token' => $request->_token,
             'card' => $request->card,
@@ -68,24 +69,55 @@ class HomeController extends Controller
             'pay' => $request->pay,
 
         ];
-         //dd($object);
 
         $authorizeNetPayment = new AuthorizeNetPayment();
         $responseData = $authorizeNetPayment->chargeCreditCard($object);
 
         $transactionResponse = $responseData->getTransactionResponse();
         $errors = $transactionResponse->getErrors();
-dd($transactionResponse);
+        $transID = $transactionResponse->getTransId();
+        $networkTransId = $transactionResponse->getNetworkTransId();
+        $accountNumber = $transactionResponse->getAccountNumber();
+        $accountType = $transactionResponse->getAccountType();
+
         $rfid = get_object_vars(json_decode(json_encode($responseData)))['refId'];
-        //dd( $transactionResponse->getRefTransID());
         $messages = get_object_vars(json_decode(json_encode($responseData)))['messages'];
         $status = get_object_vars(json_decode(json_encode($messages)))['resultCode'];
 
         if ($status == 'Ok' && is_null($errors)) {
-            $order->payment_id = $rfid;
-            $order->payment_status = 'paid';
-            $order->save();
+            $data=[
+                "user_id"=>null,
+                "property_id"=> $propertie->id,
+                "transaction_id"=> $transID ,
+                "network_transaction_id"=> $networkTransId,
+                "account_number"=> $accountNumber ,
+                "account_type"=> $accountType,
+                "payment_method"=>"Authorize.net",
+                "amount"=> $amountInUSD,
+                "status"=>1,
+            ];
+
+            $result= TransactionHistory::create($data);
+
+            if($result)
+            {
+                return redirect()->back()->with('success', 'Property payment successful.Thank You.');
+            }
+            else
+            {
+                return redirect()->back()->with('success', 'Property payment failed');
+            }
+
         }
+        else
+        {
+            $errors = $errors[0];
+            $errorCode = $errors->getErrorCode();
+            $errorText = $errors->getErrorText();
+            return redirect()->back()->with('error', 'Property payment failed.'.$errorText);
+        }
+
+
     }
     public function store(Request $request)
     {

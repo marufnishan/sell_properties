@@ -140,9 +140,9 @@
                   <div class="card bg-primary text-white rounded-3">
                     <div class="card-body">
                       <div class="d-flex justify-content-between align-items-center mb-4">
-                        <h5 class="mb-0">Card details</h5>
-                        {{-- <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/avatar-6.webp"
-                          class="img-fluid rounded-3" style="width: 45px;" alt="Avatar"> --}}
+                        <h5 class="mb-0">Card details:</h5>
+                        <img src="{{ asset('images/logo/authorizenet.png') }}"
+                          class="img-fluid rounded-3" style="width: 225px;" alt="Avatar">
                       </div>
 
                       {{-- <p class="small mb-2">Card type</p>
@@ -165,7 +165,7 @@
                         <div class="form-outline form-white mb-4">
                          <label class="form-label" for="typeText">Card Number:</label>
                           <input type="text" id="typeText" class="form-control form-control-lg" siez="17"
-                            placeholder="1234 5678 9012 3457"  name="card"/>
+                            placeholder="1234 5678 9012 3457"  name="card" value="4716376247033021"/>
 
                         </div>
 
@@ -180,7 +180,7 @@
                                     <option value="02">February </option>
                                     <option value="03">March</option>
                                     <option value="04">April</option>
-                                    <option value="05">May</option>
+                                    <option value="05" selected >May</option>
                                     <option value="06">June</option>
                                     <option value="07">July</option>
                                     <option value="08">August</option>
@@ -195,7 +195,7 @@
                             <div class="form-outline form-white">
                                 <label class="form-label" for="typeText">Expiry Year</label>
                               <input type="text" id="typeText" class="form-control form-control-lg"
-                                placeholder="&#9679;&#9679;&#9679;" size="1" minlength="4" maxlength="4" name="expyear" />
+                                placeholder="2023" size="1" minlength="4" maxlength="4" name="expyear" value="2027"/>
 
                             </div>
                           </div>
@@ -204,7 +204,7 @@
                         <hr class="my-4">
 
                         <div class="d-flex justify-content-between">
-                          <p class="mb-2">Subtotal</p>
+                          <p class="mb-2">Subtotal:</p>
                           <p class="mb-2">BDT {{ $propertie->price }}</p>
                         </div>
 
