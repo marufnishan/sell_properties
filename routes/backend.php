@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Backend\UserController;
+use App\Http\Controllers\Backend\TransactionController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('get-users',[UserController::class,'index'])->name('users');
@@ -10,3 +11,6 @@ Route::delete('/users/delete/{id}', [UserController::class, 'destroy'])->name('u
 Route::get('/user/create', [UserController::class, 'create'])->name('user.create');
 Route::post('/user/store', [UserController::class, 'store'] )->name('user.store');
 
+
+
+Route::get('/get-transaction',[TransactionController::class,'index'])->name('get.transaction');
