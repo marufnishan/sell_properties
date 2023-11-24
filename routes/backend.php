@@ -25,3 +25,4 @@ Route::get('/get-order',[OrderController::class,'index'])->name('get.order');
 
 //Property
 Route::get('properties', [PropertyController::class, 'index'])->name('show-property');
+Route::get('add-properties', [PropertyController::class, 'create'])->name('add-property');
