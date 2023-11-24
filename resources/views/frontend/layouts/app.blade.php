@@ -32,6 +32,7 @@
     <!-- Main Content -->
     <main>
         @yield('content')
+        @include('frontend.layouts.includes.modal.sell-property-modal')
     </main>
 
 

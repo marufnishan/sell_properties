@@ -258,5 +258,5 @@
         </div>
     </div>
 
-    @include('frontend.layouts.includes.modal.sell-property-modal')
+    {{-- @include('frontend.layouts.includes.modal.sell-property-modal') --}}
 @endsection
