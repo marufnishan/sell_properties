@@ -21,4 +21,16 @@ class PropertyController extends Controller
 
         return view('backend.property.add',compact('users'));
     }
+
+    public function destroy($id)
+    {
+        $property = Property::find($id);
+
+        if ($property) {
+            $property->delete();
+            return redirect()->back()->with('error', 'Property deleted successfully!');
+        }
+
+        return redirect()->back()->with('error', 'Property not found!');
+    }
 }
