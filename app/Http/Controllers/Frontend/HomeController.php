@@ -123,7 +123,12 @@ class HomeController extends Controller
     {
         try {
             $inputs=$request->all();
-            $inputs['owner_id']=auth()->id() ?? null;
+            if(Auth::user()->utype == "Admin"){
+                $inputs['owner_id']=$request->owner_id;
+            }else{
+                $inputs['owner_id']= auth()->id() ?? null;
+            }
+            
             if($request->hasFile('image'))
             {
                 $imagePath="uploads/property_images";

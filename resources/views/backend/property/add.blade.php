@@ -16,6 +16,20 @@
                         <h1>Add a property</h1>
                     </div>
                     <div>
+                        @if(Auth::user()->utype == 'Admin')
+                        <div>
+                            <div>
+                                <label for="user">User <span style="color: red;">*</span></label>                                
+                                <select id="user" name="owner_id" required>                                    
+                                    <option value="">Select an User</option>
+                                    @foreach ($users as $user)
+                                    <option value="{{$user->id}}">{{$user->name}}</option>
+                                    @endforeach                                    
+                                </select>
+                            </div>
+                        </div>
+                        @endif
+                        
                         <div>
                             <div>
                                 <label for="title">Title

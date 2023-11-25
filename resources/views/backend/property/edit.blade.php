@@ -18,6 +18,19 @@
                     </div>
                     <div>
                         <div>
+                            @if(Auth::user()->utype == 'Admin')
+                                <div>
+                                    <label for="user">User <span style="color: red;">*</span></label>                                
+                                    <select id="user" name="owner_id" required>                                    
+                                        <option value="">Select an User</option>
+                                        @foreach ($users as $user)
+                                        <option value="{{ $user->id }}" {{ $property->owner_id == $user->id ? 'selected' : '' }}>
+                                            {{ $user->name }}
+                                        </option>                                        
+                                        @endforeach                                    
+                                    </select>
+                                </div>
+                            @endif
                             <div>
                                 <label for="title">Title
                                     <span style="color: red;">*</span>
@@ -40,7 +53,7 @@
                                         <span style="color: red;">*</span>
                                         <span><i class="fa fa-info-circle"></i></span>
                                     </label>
-                                    <input required class="propertyImage" type="file" name="image" accept="image/png, image/gif, image/jpeg">
+                                    <input  class="propertyImage" type="file" name="image" accept="image/png, image/gif, image/jpeg">
                                 </div>
                                 <div>
                                     <label for="propertyType" class="form-label">Property Type

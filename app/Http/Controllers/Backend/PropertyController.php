@@ -14,8 +14,9 @@ class PropertyController extends Controller
     public function index()
     {
         $properties=Property::all();
+        $users=User::all();
 
-        return view('backend.property.show',compact('properties'));
+        return view('backend.property.show',compact(['properties','users']));
     }
     public function create()
     {
@@ -38,9 +39,10 @@ class PropertyController extends Controller
     public function edit($id)
     {
         $property = Property::find($id);
+        $users=User::all();
 
         if ($property) {
-            return view('backend.property.edit',compact('property'));
+            return view('backend.property.edit',compact(['property','users']));
         }
 
         return redirect()->back()->with('error', 'Property not found!');
@@ -74,8 +76,8 @@ class PropertyController extends Controller
     
                 $property->update($inputs);
     
-                return view('backend.property.edit', compact('property'))
-                    ->with('success', 'Property updated successfully.');
+                
+            return redirect()->route('show-property')->with('success', 'Property updated successfully');
     
             } catch (\Exception $e) {
                 return redirect()->back()->with('error', 'Error updating property: ' . $e->getMessage());
