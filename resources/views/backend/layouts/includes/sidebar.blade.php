@@ -39,12 +39,12 @@
         @endif
     </ul>
     <ul class="side-menu">
-        <li>
+        {{-- <li>
             <a href="#">
                 <i class='bx bxs-cog' ></i>
                 <span class="text">Settings</span>
             </a>
-        </li>
+        </li> --}}
 
         @if(Auth::user())
         <li>
