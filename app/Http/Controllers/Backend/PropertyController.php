@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Property;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\File;
 
@@ -13,11 +14,16 @@ class PropertyController extends Controller
 {
     public function index()
     {
-        $properties=Property::all();
-        $users=User::all();
+        if (Auth::user()->utype == 'Admin') {
+            $data['properties'] = Property::all();
+            $data['users'] = User::all();
+        } else {
+            $data['properties'] = Property::where('owner_id', Auth::user()->id)->get();
+        }
 
-        return view('backend.property.show',compact(['properties','users']));
+        return view('backend.property.show', $data);
     }
+
     public function create()
     {
         $users=User::all();
