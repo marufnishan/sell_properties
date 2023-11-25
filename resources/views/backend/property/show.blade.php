@@ -67,7 +67,7 @@
                                     @endif
                                 </td>
                                 <td style="padding:25px;">{{ \Carbon\Carbon::parse($value->created_at)->format('jS F Y h:i:s A') }}</td>
-                                <td style="padding:25px; width:300px; display: inline-block;"><a href="{{-- {{route('user.edit',$value->id)}} --}}"><button id="editButton" class="status completed" style="border:none;cursor:pointer">Edit</button>
+                                <td style="padding:25px; width:300px; display: inline-block;"><a href="{{route('property.edit',$value->id)}}"><button id="editButton" class="status completed" style="border:none;cursor:pointer">Edit</button>
                                 </a><form action="{{ route('property.destroy', ['id' => $value->id]) }}" method="post" style="display:inline;">@csrf @method('delete')<button type="submit" class="status pending" style="border:none;cursor:pointer">Delete</button></form></td>
 
 
