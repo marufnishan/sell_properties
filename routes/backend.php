@@ -7,6 +7,7 @@ use App\Http\Controllers\Backend\PropertyController;
 use Illuminate\Support\Facades\Route;
 
 
+Route::middleware(['auth.check','auth.admin'])->group(function () {
 //user
 Route::get('get-users',[UserController::class,'index'])->name('users');
 Route::get('/user/edit/{id}', [UserController::class, 'edit'])->name('user.edit');
@@ -16,15 +17,21 @@ Route::get('/user/create', [UserController::class, 'create'])->name('user.create
 Route::post('/user/store', [UserController::class, 'store'] )->name('user.store');
 
 
-//Order
-Route::get('/get-transaction',[TransactionController::class,'index'])->name('get.transaction');
-Route::get('/get-order',[OrderController::class,'index'])->name('get.order');
 
+});
 
-
+Route::middleware(['auth.check'])->group(function () {
 //Property
 Route::get('properties', [PropertyController::class, 'index'])->name('show-property');
 Route::get('add-properties', [PropertyController::class, 'create'])->name('add-property');
 Route::delete('/property/delete/{id}', [PropertyController::class, 'destroy'])->name('property.destroy');
 Route::get('/property/edit/{id}', [PropertyController::class, 'edit'])->name('property.edit');
 Route::put('/property/update/{id}', [PropertyController::class, 'update'])->name('property.update');
+
+
+//Order
+Route::get('/get-transaction',[TransactionController::class,'index'])->name('get.transaction');
+Route::get('/get-order',[OrderController::class,'index'])->name('get.order');
+});
+
+

@@ -16,15 +16,20 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::middleware([
+/* Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
     'verified',
 ])->group(function () {
     Route::get('/dashboard',[DashboardController::class, 'index'])->name('dashboard');
+}); */
+
+Route::middleware(['auth.check'])->group(function () {
+    Route::get('/dashboard',[DashboardController::class, 'index'])->name('dashboard');
+    Route::get('/sign-out', [AuthController::class, 'logout'])
+    ->name('sign-out');
 });
 
-Route::get('/sign-out', [AuthController::class, 'logout'])
-    ->name('sign-out');
+
 
 
