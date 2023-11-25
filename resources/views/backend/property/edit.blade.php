@@ -30,6 +30,24 @@
                                         @endforeach                                    
                                     </select>
                                 </div>
+                                <div>
+                                    <label for="status">Status <span style="color: red;">*</span></label>                                
+                                    <select id="status" name="status" required>                                    
+                                        <option value="">Select</option>
+                                        <option value="0" {{ $property->status == 0 ? 'selected' : '' }}>
+                                            Pending
+                                        </option>                                      
+                                        <option value="1" {{ $property->status == 1 ? 'selected' : '' }}>
+                                            Approved
+                                        </option>                                      
+                                        <option value="2" {{ $property->status == 2 ? 'selected' : '' }}>
+                                            Rejected
+                                        </option>                                      
+                                        <option value="3" {{ $property->status == 3 ? 'selected' : '' }}>
+                                            Blocked
+                                        </option>                                      
+                                    </select>
+                                </div>
                             @endif
                             <div>
                                 <label for="title">Title
