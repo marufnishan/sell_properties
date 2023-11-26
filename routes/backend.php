@@ -4,6 +4,7 @@ use App\Http\Controllers\Backend\UserController;
 use App\Http\Controllers\Backend\TransactionController;
 use App\Http\Controllers\Backend\OrderController;
 use App\Http\Controllers\Backend\PropertyController;
+use App\Http\Controllers\Backend\UserFeedbackController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -32,6 +33,11 @@ Route::put('/property/update/{id}', [PropertyController::class, 'update'])->name
 //Order
 Route::get('/get-transaction',[TransactionController::class,'index'])->name('get.transaction');
 Route::get('/get-order',[OrderController::class,'index'])->name('get.order');
+
+//feedback
+Route::get('/get-feedback',[UserFeedbackController::class,'index'])->name('get.feedback');
+Route::get('/get-feedback-individual-property/{propertyId}',[UserFeedbackController::class,'feedbackIndividualProperty'])->name('get.feedback.individual.property');
+
 });
 
 

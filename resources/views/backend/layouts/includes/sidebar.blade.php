@@ -29,11 +29,19 @@
                 <span class="text">Transections</span>
             </a>
         </li>
-        @if(Auth::user()->utype == 'Admin')       
+        @if(Auth::user()->utype == 'Admin')
         <li class="{{ request()->routeIs('users') ? 'active' : '' }}">
             <a href="{{route('users')}}">
                 <i class='bx bxs-group' ></i>
                 <span class="text">User List</span>
+            </a>
+        </li>
+        @endif
+        @if(Auth::user()->utype == 'Admin')
+        <li class="{{ request()->routeIs('get.feedback') ? 'active' : '' }}">
+            <a href="{{route('get.feedback')}}">
+                <i class='bx bxs-group' ></i>
+                <span class="text">User Product Feedback</span>
             </a>
         </li>
         @endif

@@ -19,4 +19,10 @@ class Property extends Model
     {
         return $this->belongsTo(User::class, 'approved_by');
     }
+
+    public function feedback()
+    {
+
+        return $this->hasMany(Feedback::class, 'property_id');
+    }
 }
