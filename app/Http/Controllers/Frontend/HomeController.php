@@ -14,6 +14,7 @@ use Illuminate\Validation\ValidationException;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\File;
 use App\Authorize\AuthorizeNetPayment;
+use App\Models\Feedback;
 
 class HomeController extends Controller
 {
@@ -29,8 +30,10 @@ class HomeController extends Controller
     public function propertyView($id)
     {
         $propertie=Property::findOrFail($id);
+        $feedback=Feedback::where('property_id',$id)->orderBy('id', 'desc')->get()->load('user');
+        //dd( $feedback);
 
-        return view('frontend.property-view',compact('propertie'));
+        return view('frontend.property-view',compact('propertie','feedback'));
     }
 
     public function propertyPurchase($id)
@@ -105,7 +108,7 @@ class HomeController extends Controller
             }
             else
             {
-                return redirect()->back()->with('success', 'Property payment failed');
+                return redirect()->back()->with('error', 'Property payment failed');
             }
 
         }
@@ -128,7 +131,7 @@ class HomeController extends Controller
             }else{
                 $inputs['owner_id']= auth()->id() ?? null;
             }
-            
+
             if($request->hasFile('image'))
             {
                 $imagePath="uploads/property_images";
@@ -147,7 +150,7 @@ class HomeController extends Controller
             }else{
                 return redirect()->back()->with('success', 'Property sell request created successfully.');
             }
-            
+
         } catch (\Exception $e) {
             return redirect()->back()->with('error', 'Error creating property sell request: ' . $e->getMessage());
         }

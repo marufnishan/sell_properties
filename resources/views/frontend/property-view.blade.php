@@ -100,6 +100,113 @@
           </div>
         </div>
       </div>
+      <div class="row mt-2">
+        <div class="col-md-12">
+            <div class="row d-flex justify-content-left">
+                <div class="col-md-12 col-lg-12">
+                  <div class="card shadow-0 border" style="background-color: #f0f2f5;">
+                    <div class="card-body p-4">
+                        <form action="{{ route("user.property.feedback",["propertyId"=> $propertie->id]) }}" method="POST" enctype="multipart/form-data">
+                            @csrf
+                            <div class="form-outline mb-4">
+                                <textarea id="addANote" name="feedbackText" class="form-control" placeholder="Type feedback..."  cols="30" rows="10"></textarea>
+                                @if(Auth::user())
+                                    <button  type="submit" class="btn btn-warning m-2">+ Give feedback</button>
+                                @else
+                                    <a   data-bs-toggle="modal" data-bs-target="#redirect-login-signup" class="btn btn-warning m-2">+ Give feedback</a>
+                                @endif
+                            </div>
+                        </form>
+                        <p>Previous Feedback....</p>
+                       @foreach ($feedback as $item)
+                        <div class="card mb-4">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between">
+                                    <div class="d-flex flex-row align-items-center">
+                                    <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(4).webp" alt="avatar" width="25"
+                                        height="25" />
+                                    <p class="small mb-0 ms-2">{{ $item?->user?->name }}</p>
+                                    </div>
+                                    <div class="d-flex flex-row align-items-center">
+                                        <p class="small text-muted mb-0 ml-2">
+                                            {{ \Carbon\Carbon::parse($item->created_at)->diffForHumans() }}
+                                        </p>
+                                        {{-- <i class="fa fa-eye text-black" style="margin-top: -0.16rem;margin-left: 11px;margin-right: 10px;"></i>
+                                        <p class="small text-muted mb-0">3</p> --}}
+                                    </div>
+                                </div>
+                                <div class="card m-4" >
+                                    <div class="card-body">
+                                        <p>{{ $item->comment }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                       @endforeach
+                      {{-- <div class="card mb-4">
+                        <div class="card-body">
+                          <p>Type your note, and hit enter to add it</p>
+
+                          <div class="d-flex justify-content-between">
+                            <div class="d-flex flex-row align-items-center">
+                              <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(32).webp" alt="avatar" width="25"
+                                height="25" />
+                              <p class="small mb-0 ms-2">Johny</p>
+                            </div>
+                            <div class="d-flex flex-row align-items-center">
+                              <p class="small text-muted mb-0">Upvote?</p>
+                              <i class="far fa-thumbs-up mx-2 fa-xs text-black" style="margin-top: -0.16rem;"></i>
+                              <p class="small text-muted mb-0">4</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="card mb-4">
+                        <div class="card-body">
+                          <p>Type your note, and hit enter to add it</p>
+
+                          <div class="d-flex justify-content-between">
+                            <div class="d-flex flex-row align-items-center">
+                              <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(31).webp" alt="avatar" width="25"
+                                height="25" />
+                              <p class="small mb-0 ms-2">Mary Kate</p>
+                            </div>
+                            <div class="d-flex flex-row align-items-center text-primary">
+                              <p class="small mb-0">Upvoted</p>
+                              <i class="fas fa-thumbs-up mx-2 fa-xs" style="margin-top: -0.16rem;"></i>
+                              <p class="small mb-0">2</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="card">
+                        <div class="card-body">
+                          <p>Type your note, and hit enter to add it</p>
+
+                          <div class="d-flex justify-content-between">
+                            <div class="d-flex flex-row align-items-center">
+                              <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(32).webp" alt="avatar" width="25"
+                                height="25" />
+                              <p class="small mb-0 ms-2">Johny</p>
+                            </div>
+                            <div class="d-flex flex-row align-items-center">
+                              <p class="small text-muted mb-0">Upvote?</p>
+                              <i class="far fa-thumbs-up ms-2 fa-xs text-black" style="margin-top: -0.16rem;"></i>
+                            </div>
+                          </div>
+                        </div>
+                      </div> --}}
+                    </div>
+                  </div>
+                </div>
+              </div>
+        </div>
+        <div class="col-md-8">
+
+        </div>
+    </div>
     </div>
   </section>
 @endsection

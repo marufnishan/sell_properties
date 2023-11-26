@@ -154,8 +154,7 @@
                           class="fab fa-cc-amex fa-2x me-2"></i></a>
                       <a href="#!" type="submit" class="text-white"><i class="fab fa-cc-paypal fa-2x"></i></a> --}}
 
-                      <form action="{{ route("property.purchase.store",["id"=> $propertie->id]) }}" method="POST" enctype="multipart/form-data"  class="mt-4">
-                        @csrf
+                      v
                         {{-- <div class="form-outline form-white mb-4">
                           <input type="text" id="typeName" class="form-control form-control-lg" siez="17"
                             placeholder="Cardholder's Name" />
