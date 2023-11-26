@@ -2,9 +2,9 @@
 
 @section('content')
     <div class="container px-4 px-lg-5 mt-5">
-        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+        <div class="row justify-content-center">
             @foreach ($properties as $item)
-            <div class="col mb-5">
+            <div class="col-md-6 mb-5">
                 <div class="card h-100" style="width: 24rem;">
                     <!-- Product image -->
                     <img class="card-img-top" src="{{ asset($item->image) }}" alt="...">
