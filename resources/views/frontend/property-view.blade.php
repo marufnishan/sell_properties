@@ -9,10 +9,11 @@
             <div class="card-body p-4">
               <div class="row">
                 <div class="col-lg-7">
-                  <h5 class="mb-3"><a href="#!" class="text-body">
-                    <i class="fas fa-long-arrow-alt-left me-2"></i>Property view</a>
-                  </h5>
-                  <hr>
+                  <a href="/"  style="text-decoration: none" class="text-body">
+                  <button class="mb-3 btn btn-success">
+                    <i class="fas fa-long-arrow-alt-left me-2"></i>Show All Property
+                  </button>
+                </a>
                   <div class="card mb-3">
                     <div class="card-body">
                       <div class="d-flex justify-content-between">
@@ -28,7 +29,7 @@
                   </div>
                 </div>
                 <div class="col-lg-5 mt-5">
-                  <div class="card  rounded-3">
+                  <div class="card  rounded-3 mt-5">
                     <div class="card-body">
                       <div class="d-flex justify-content-between align-items-center mb-4">
                         <h5 class="mb-0">Details:</h5>
