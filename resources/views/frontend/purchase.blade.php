@@ -11,20 +11,10 @@
               <div class="row">
 
                 <div class="col-lg-7">
-                  <h5 class="mb-3"><a href="#!" class="text-body"><i
-                        class="fas fa-long-arrow-alt-left me-2"></i>Continue buying</a></h5>
+                  <a href="/" class="text-body" style="text-decoration: none">
+                  <button class="mb-3 btn btn-success"><i
+                        class="fas fa-long-arrow-alt-left me-2"></i>Back</button></a>
                   <hr>
-
-                  {{-- <div class="d-flex justify-content-between align-items-center mb-4">
-                    <div>
-                      <p class="mb-1"> cart</p>
-                      <p class="mb-0">You have 1 items in your cart</p>
-                    </div>
-                    <div>
-                      <p class="mb-0"><span class="text-muted">Sort by:</span> <a href="#!"
-                          class="text-body">price <i class="fas fa-angle-down mt-1"></i></a></p>
-                    </div>
-                  </div> --}}
 
                   <div class="card mb-3">
                     <div class="card-body">
@@ -37,13 +27,9 @@
                           </div>
                           <div class="ms-3">
                             <h5>{{$propertie->title }}</h5>
-                            {{-- <p class="small mb-0">4 katha Independent House</p> --}}
                           </div>
                         </div>
                         <div class="d-flex flex-row align-items-center">
-                          {{-- <div style="width: 50px;">
-                            <h5 class="fw-normal mb-0">1</h5>
-                          </div> --}}
                           <div style="width: 130px;">
                             <h5 class="mb-0">BDT {{  $propertie->price }}</h5>
                           </div>
@@ -52,87 +38,6 @@
                       </div>
                     </div>
                   </div>
-
-                  {{-- <div class="card mb-3">
-                    <div class="card-body">
-                      <div class="d-flex justify-content-between">
-                        <div class="d-flex flex-row align-items-center">
-                          <div>
-                            <img
-                            src="https://www.nsapropertiesltd.com/wp-content/uploads/2019/12/Front-view.jpg"
-                              class="img-fluid rounded-3" alt="Shopping item" style="width: 65px;">
-                          </div>
-                          <div class="ms-3">
-                            <h5>Ongoing – NSA Properties LTD </h5>
-                            <p class="small mb-0">4 katha Independent House</p>
-                          </div>
-                        </div>
-                        <div class="d-flex flex-row align-items-center">
-                          <div style="width: 50px;">
-                            <h5 class="fw-normal mb-0">1</h5>
-                          </div>
-                          <div style="width: 80px;">
-                            <h5 class="mb-0">$900</h5>
-                          </div>
-                          <a href="#!" style="color: #cecece;"><i class="fas fa-trash-alt"></i></a>
-                        </div>
-                      </div>
-                    </div>
-                  </div> --}}
-
-                  {{-- <div class="card mb-3">
-                    <div class="card-body">
-                      <div class="d-flex justify-content-between">
-                        <div class="d-flex flex-row align-items-center">
-                          <div>
-                            <img
-                              src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-shopping-carts/img3.webp"
-                              class="img-fluid rounded-3" alt="Shopping item" style="width: 65px;">
-                          </div>
-                          <div class="ms-3">
-                            <h5>Canon EOS M50</h5>
-                            <p class="small mb-0">Onyx Black</p>
-                          </div>
-                        </div>
-                        <div class="d-flex flex-row align-items-center">
-                          <div style="width: 50px;">
-                            <h5 class="fw-normal mb-0">1</h5>
-                          </div>
-                          <div style="width: 80px;">
-                            <h5 class="mb-0">$1199</h5>
-                          </div>
-                          <a href="#!" style="color: #cecece;"><i class="fas fa-trash-alt"></i></a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="card mb-3 mb-lg-0">
-                    <div class="card-body">
-                      <div class="d-flex justify-content-between">
-                        <div class="d-flex flex-row align-items-center">
-                          <div>
-                            <img
-                              src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-shopping-carts/img4.webp"
-                              class="img-fluid rounded-3" alt="Shopping item" style="width: 65px;">
-                          </div>
-                          <div class="ms-3">
-                            <h5>MacBook Pro</h5>
-                            <p class="small mb-0">1TB, Graphite</p>
-                          </div>
-                        </div>
-                        <div class="d-flex flex-row align-items-center">
-                          <div style="width: 50px;">
-                            <h5 class="fw-normal mb-0">1</h5>
-                          </div>
-                          <div style="width: 80px;">
-                            <h5 class="mb-0">$1799</h5>
-                          </div>
-                          <a href="#!" style="color: #cecece;"><i class="fas fa-trash-alt"></i></a>
-                        </div>
-                      </div>
-                    </div>
-                  </div> --}}
 
                 </div>
                 <div class="col-lg-5">
@@ -145,22 +50,6 @@
                           class="img-fluid rounded-3" style="width: 225px;" alt="Avatar">
                       </div>
 
-                      {{-- <p class="small mb-2">Card type</p>
-                      <a href="#!" type="submit" class="text-white"><i
-                          class="fab fa-cc-mastercard fa-2x me-2"></i></a>
-                      <a href="#!" type="submit" class="text-white"><i
-                          class="fab fa-cc-visa fa-2x me-2"></i></a>
-                      <a href="#!" type="submit" class="text-white"><i
-                          class="fab fa-cc-amex fa-2x me-2"></i></a>
-                      <a href="#!" type="submit" class="text-white"><i class="fab fa-cc-paypal fa-2x"></i></a> --}}
-
-                      v
-                        {{-- <div class="form-outline form-white mb-4">
-                          <input type="text" id="typeName" class="form-control form-control-lg" siez="17"
-                            placeholder="Cardholder's Name" />
-                          <label class="form-label" for="typeName">Cardholder's Name</label>
-                        </div> --}}
-
                         <div class="form-outline form-white mb-4">
                          <label class="form-label" for="typeText">Card Number:</label>
                           <input type="text" id="typeText" class="form-control form-control-lg" siez="17"
@@ -171,8 +60,6 @@
                         <div class="row mb-4">
                           <div class="col-md-6">
                             <div class="form-outline form-white">
-                              {{-- <input type="text" id="typeExp" class="form-control form-control-lg"
-                                placeholder="MM/YYYY" size="7" id="exp" minlength="7" maxlength="7" /> --}}
                               <label class="form-label" for="typeExp">Expiration Month</label>
                                 <select name="expmonth"  class="form-control form-control-lg form-select" >
                                     <option value="01">January</option>
@@ -206,16 +93,6 @@
                           <p class="mb-2">Subtotal:</p>
                           <p class="mb-2">BDT {{ $propertie->price }}</p>
                         </div>
-
-                        {{-- <div class="d-flex justify-content-between">
-                          <p class="mb-2">Shipping</p>
-                          <p class="mb-2">$20.00</p>
-                        </div> --}}
-
-                        {{-- <div class="d-flex justify-content-between mb-4">
-                          <p class="mb-2">Total(Incl. taxes)</p>
-                          <p class="mb-2">$4818.00</p>
-                        </div> --}}
                         @if(Auth::user())
                             <button type="submit" class="btn btn-info btn-block btn-lg">
                                 <div class="d-flex justify-content-between">
