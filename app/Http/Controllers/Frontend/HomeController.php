@@ -103,7 +103,7 @@ class HomeController extends Controller
 
             if($result)
             {
-                return redirect()->back()->with('success', 'Property payment successful.Thank You.');
+                return redirect()->route('get.transaction')->with('success', 'Property payment successful.Thank You.');
             }
             else
             {
