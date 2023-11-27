@@ -43,7 +43,7 @@ class HomeController extends Controller
     }
 
     public function propertyPurchaseStore(Request $request,$id)
-    {
+    { 
         // $request->validate([
         //     'payment_method' => 'required',
         //     'card' => ['required', 'numeric', 'regex:/^[0-9]+$/'],

@@ -53,7 +53,7 @@
                         <div class="form-outline form-white mb-4">
                          <label class="form-label" for="typeText">Card Number:</label>
                           <input type="text" id="typeText" class="form-control form-control-lg" siez="17"
-                            placeholder="1234 5678 9012 3457"  name="card" value="4716376247033021"/>
+                            placeholder="4716376247033021"  name="card" value=""/>
 
                         </div>
 
@@ -66,7 +66,7 @@
                                     <option value="02">February </option>
                                     <option value="03">March</option>
                                     <option value="04">April</option>
-                                    <option value="05" selected >May</option>
+                                    <option value="05"  >May</option>
                                     <option value="06">June</option>
                                     <option value="07">July</option>
                                     <option value="08">August</option>
@@ -81,7 +81,7 @@
                             <div class="form-outline form-white">
                                 <label class="form-label" for="typeText">Expiry Year</label>
                               <input type="text" id="typeText" class="form-control form-control-lg"
-                                placeholder="2023" size="1" minlength="4" maxlength="4" name="expyear" value="2027"/>
+                                placeholder="2027" size="1" minlength="4" maxlength="4" name="expyear" value=""/>
 
                             </div>
                           </div>
