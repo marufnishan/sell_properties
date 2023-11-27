@@ -22,7 +22,7 @@ class HomeController extends Controller
 
     public function index()
     {
-        $properties=Property::all();
+        $properties=Property::where('status',1)->orderBy('id','desc')->get();
 
         return view('frontend.home',compact('properties'));
     }

@@ -15,10 +15,10 @@ class PropertyController extends Controller
     public function index()
     {
         if (Auth::user()->utype == 'Admin') {
-            $data['properties'] = Property::all();
-            $data['users'] = User::all();
+            $data['properties'] = Property::orderBy('id','desc')->get();
+            $data['users'] = User::orderBy('id','desc')->get();
         } else {
-            $data['properties'] = Property::where('owner_id', Auth::user()->id)->get();
+            $data['properties'] = Property::where('owner_id', Auth::user()->id)->orderBy('id','desc')->get();
         }
 
         return view('backend.property.show', $data);
