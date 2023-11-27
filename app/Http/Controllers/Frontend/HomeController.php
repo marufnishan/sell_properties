@@ -127,9 +127,9 @@ class HomeController extends Controller
         try {
             $inputs=$request->all();
             if(Auth::user()->utype == "Admin"){
-                $inputs['owner_id']=$request->owner_id;
+                $inputs['owner_id']=$request->owner_id ?? Auth::user()->id ?? null;
             }else{
-                $inputs['owner_id']= auth()->id() ?? null;
+                $inputs['owner_id']= Auth::user()->id ?? null;
             }
 
             if($request->hasFile('image'))
