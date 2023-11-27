@@ -49,7 +49,8 @@
                         <img src="{{ asset('images/logo/authorizenet.png') }}"
                           class="img-fluid rounded-3" style="width: 225px;" alt="Avatar">
                       </div>
-
+                      <form action="{{ route("property.purchase.store",["id"=> $propertie->id]) }}" method="POST" enctype="multipart/form-data"  class="mt-4">
+                        @csrf
                         <div class="form-outline form-white mb-4">
                          <label class="form-label" for="typeText">Card Number:</label>
                           <input type="text" id="typeText" class="form-control form-control-lg" siez="17"

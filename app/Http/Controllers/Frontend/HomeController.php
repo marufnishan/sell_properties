@@ -44,12 +44,11 @@ class HomeController extends Controller
 
     public function propertyPurchaseStore(Request $request,$id)
     { 
-        // $request->validate([
-        //     'payment_method' => 'required',
-        //     'card' => ['required', 'numeric', 'regex:/^[0-9]+$/'],
-        //     'expmonth' => 'required',
-        //     'expyear' => 'required|date_format:Y',
-        // ]);
+        $request->validate([
+            'card' => ['required', 'numeric', 'regex:/^[0-9]+$/'],
+            'expmonth' => 'required',
+            'expyear' => 'required|date_format:Y',
+        ]);
 
         $propertie=Property::findOrFail($id);
 
