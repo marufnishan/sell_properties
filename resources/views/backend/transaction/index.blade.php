@@ -37,7 +37,7 @@
                                 <td style="padding:25px;">{{ $value->account_number}}</td>
                                 <td style="padding:25px;">{{ $value->account_type}}</td>
                                 <td style="padding:25px;">{{ $value->payment_method}}</td>
-                                <td style="padding:25px;">{{ $value->amount}}</td>
+                                <td style="padding:25px;">BDT {{ $value->amount*110.32}}</td>
                                 <td style="padding: 25px;">
                                     @if($value->status == 0)
                                         Pending
