@@ -20,11 +20,26 @@ class HomeController extends Controller
 {
 
 
-    public function index()
+    public function index(Request $request)
     {
-        $properties=Property::where('status',1)->orderBy('id','desc')->get();
+        $search_items='';
+        if($request->search_items)
+        {
+            $search_items=$request->search_items;
+            $properties = Property::where('status', 1)
+                ->when($request->has('search_items'), function ($query) use ($request) {
+                    $query->where('title', 'like', '%' . $request->search_items . '%');
+                })
+                ->orderBy('id', 'desc')
+                ->get();
+        }
+        else
+        {
+            $properties=Property::where('status',1)->orderBy('id','desc')->get();
+        }
 
-        return view('frontend.home',compact('properties'));
+
+        return view('frontend.home',compact('properties','search_items'));
     }
 
     public function propertyView($id)
@@ -43,7 +58,7 @@ class HomeController extends Controller
     }
 
     public function propertyPurchaseStore(Request $request,$id)
-    { 
+    {
         $request->validate([
             'card' => ['required', 'numeric', 'regex:/^[0-9]+$/'],
             'expmonth' => 'required',

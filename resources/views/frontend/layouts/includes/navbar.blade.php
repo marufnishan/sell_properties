@@ -23,6 +23,17 @@
                         <li><a class="dropdown-item" href="#!">Reports</a></li>
                     </ul>
                 </li> --}}
+                @if(request()->routeIs('index'))
+                    <form action="{{ route('index') }}" method="get">
+                        @csrf
+                        <li class="nav-item" style="margin-left: 40px; margin-top: 3px;">
+                            <div class="d-flex">
+                                <input type="text" class="form-control" name="search_items" placeholder="Search items..." value="{{ $search_items ?? '' }}">
+                                <button type="submit" class="btn btn-primary" style="margin-left: 10px;">Search</button>
+                            </div>
+                        </li>
+                    </form>
+                @endif
             </ul>
             <form class="d-flex">
                 {{-- <button class="btn btn-outline-dark" type="submit">
